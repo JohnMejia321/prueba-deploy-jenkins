@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-hola-mundo-deployment
+spec:
+  replicas: 1  # Cambia este valor según tus necesidades de escalabilidad
+  selector:
+    matchLabels:
+      app: ms-hola-mundo
+  template:
+    metadata:
+      labels:
+        app: ms-hola-mundo
+    spec:
+      containers:
+      - name: ms-hola-mundo
+        image: johnmejia9887654321/ms-hola-mundo-v1:latest  # Utiliza tu imagen Docker desde Docker Hub
+        ports:
+        - containerPort: 8083
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-hola-mundo-service
+spec:
+  selector:
+    app: ms-hola-mundo
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+  type: LoadBalancer  # Cambio aquí para utilizar NodePort
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-hola-mundo-svc
+spec:
+  selector:
+    app: ms-hola-mundo
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 8083
+  type: ClusterIP  # Cambio aquí para utilizar NodePort
