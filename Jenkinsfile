@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 // Construir el proyecto y generar el artefacto JAR
-                dir("spring-boot-hello-world") {
+                
                     bat 'mvn clean package'
-                }
+                
             }
         }
         
@@ -16,7 +16,7 @@ pipeline {
                 // Buscar el Dockerfile y crear la imagen Docker
                // dir("spring-boot-hello-world") {
                     bat 'docker build -t my-docker-image-v2:latest .'
-                }
+                
             }
         }
         
