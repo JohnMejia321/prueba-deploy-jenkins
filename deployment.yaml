@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: ms-hola-mundo
-        image: johnmejia9887654321/ms-hola-mundo-v1:latest  # Utiliza tu imagen Docker desde Docker Hub
+        image: johnmejia9887654321/johnmejia9887654321/my-docker-image-v2:latest  # Utiliza tu imagen Docker desde Docker Hub
         ports:
         - containerPort: 8083
 
