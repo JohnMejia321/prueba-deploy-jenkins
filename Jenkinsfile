@@ -20,14 +20,14 @@ pipeline {
             }
         }
         
-       /*  stage('Push to Docker Hub') {
+        stage('Push to Docker Hub') {
             steps {
                 // Iniciar sesión en Docker Hub y enviar la imagen
-                sh 'docker login -u johnmejia9887654321 -p fredy555.'
-                sh 'docker tag my-docker-image-v2:latest johnmejia9887654321/my-docker-image-v2:latest'
-                sh 'docker push johnmejia9887654321/my-docker-image-v2:latest'
+                bat 'docker login -u johnmejia9887654321 -p fredy555.'
+                bat 'docker tag my-docker-image-v2:latest johnmejia9887654321/my-docker-image-v2:latest'
+                bat 'docker push johnmejia9887654321/my-docker-image-v2:latest'
             }
-        } */
+        }
         
        /*  stage('Deploy with Kubernetes') {
             steps {
