@@ -32,7 +32,7 @@ pipeline {
         stage('Deploy with Kubernetes') {
             steps {
                 // Descargar el archivo deployment.yaml y aplicar en Kubernetes
-                bat 'kubectl apply -f path/to/deployment.yaml'
+                bat 'kubectl apply -f deployment.yaml'
             }
         }
     }
