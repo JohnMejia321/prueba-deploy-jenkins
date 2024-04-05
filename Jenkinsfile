@@ -14,7 +14,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 // Buscar el Dockerfile y crear la imagen Docker
-                dir("spring-boot-hello-world") {
+               // dir("spring-boot-hello-world") {
                     bat 'docker build -t my-docker-image-v2:latest .'
                 }
             }
