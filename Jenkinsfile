@@ -32,9 +32,10 @@ pipeline {
         stage('Deploy with Kubernetes') {
             steps {
                 // Descargar el archivo deployment.yaml y aplicar en Kubernetes
-                bat 'kubectl apply -f deployment.yaml'
+                withCredentials([file(credentialsId: 'mycubeconfig', variable: 'KUBECONFIG')]) {
+                    bat 'kubectl apply -f deployment.yaml --kubeconfig=${KUBECONFIG}'
+                }
             }
-        }
     }
 }
 
