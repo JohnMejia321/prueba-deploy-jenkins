@@ -5,18 +5,15 @@ pipeline {
         stage('Build') {
             steps {
                 // Construir el proyecto y generar el artefacto JAR
-                
-                    bat 'mvn clean package'
-                
+                bat 'mvn clean package'
             }
         }
         
         stage('Build Docker Image') {
             steps {
                 // Buscar el Dockerfile y crear la imagen Docker
-               // dir("spring-boot-hello-world") {
-                    bat 'docker build -t my-docker-image-v2:latest .'
-                
+                // dir("spring-boot-hello-world") {
+                bat 'docker build -t my-docker-image-v2:latest .'
             }
         }
         
@@ -36,7 +33,6 @@ pipeline {
                     bat 'kubectl apply -f deployment.yaml --kubeconfig=${KUBECONFIG}'
                 }
             }
+        }
     }
 }
-
-	
